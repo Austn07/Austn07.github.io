@@ -30,9 +30,7 @@ canvas {
 	</head>
 	<br>
 <button onmousedown="accelerate(-0.30)" onmouseup="accelerate(0.20)">"Jump"</button>
-myGamePiece.ex1 {
-  max-height: 100px;
-}
+
 <p>Use the "Jump" button to, well... jump</p>
 <p>How long can you last?</p>
 		
@@ -54,7 +52,7 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
+        this.canvas.width = 680;
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
