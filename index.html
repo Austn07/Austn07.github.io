@@ -44,4 +44,45 @@
 		  <li>Third time's the charm :)</li>
 		</ol>
   </body>
+  
+import pygame
+from pygame.locals import *
+
+pygame.init()
+clock = pygame.time.Clock()
+size = 1500, 750
+screen = pygame.display.set_mode(size,0,32)
+pygame.display.set_caption('GAME')
+x, y = 200, 130
+
+sprite=pygame.image.load('spamton.png')
+pygame.transform.scale
+loop = True
+while loop:
+    screen.fill((0,0,0))
+    screen.blit(sprite,(x,y))
+
+    for event in pygame.event.get():
+        # this is to close the window
+        if event.type==QUIT:
+            loop = False
+            #sys.exit() # this will close the kernel too
+            # in development mode leave the comment above
+    # this is the list with the keys being pressed
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        x -= 2
+    if keys[pygame.K_RIGHT]:
+        x += 2
+    if keys[pygame.K_UP]:
+        y -= 2
+    if keys[pygame.K_DOWN]:
+        y += 2
+    # we update the screen at every frame
+    pygame.display.flip()
+    # if we put the frame rate at 60 the sprite will move slower
+    clock.tick(180)
+
+pygame.quit()
+
 </html>
