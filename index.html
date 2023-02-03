@@ -11,7 +11,7 @@ canvas {
 }
 
 @keyframes mymove1 {
-  50% {background-color: red;}
+  50% {background-color: #6B0B0B;}
   }
 
  body{
@@ -19,11 +19,11 @@ canvas {
 		}
 		h1{
 		  color: purple;
-          animation: mymove2 3s infinite;
+          animation: mymove2 4s infinite;
         }
 
         @keyframes mymove2 {
-          50% {color: cyan;}
+          50% {color: green;}
 		}
 		h2{
 		  color: white
@@ -136,7 +136,7 @@ function updateGameArea() {
     }
     myGameArea.clear();
     myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(300)) {
+    if (myGameArea.frameNo == 1 || everyinterval(150)) {
         x = myGameArea.canvas.width;
         minHeight = 20;
         maxHeight = 100;
