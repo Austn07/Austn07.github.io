@@ -41,30 +41,6 @@ canvas {
 	</head>
 	<br>
 <button style="width: 200px; height: 75px;" onmousedown="accelerate(-0.20)" onmouseup="accelerate(0.20)">"Jump"</button>
-		window.addEventListener('keydown', function (e) {
-		  switch(e.keyCode) {
-			case 37: // left arrow
-			  myGamePiece.speedX = -1;
-			  break;
-			case 38: // up arrow
-			  myGamePiece.speedY = -1;
-			  break;
-			case 39: // right arrow
-			  myGamePiece.speedX = 1;
-			  break;
-			case 40: // down arrow
-			  myGamePiece.speedY = 1;
-			  break;
-		  }
-		window.addEventListener('keyup', function (e) {
-			myGamePiece.speedX = 0;
-			myGamePiece.speedY = 0;
-		});
-		function updateGameArea() {
-			// ...
-		myGamePiece.newPos();
-			// ...
-		}
 		
 <p>Use the "Jump" button to, well... jump</p>
 <p>How long can you survive?</p>
@@ -79,7 +55,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "red", 10, 120);
-    myGamePiece.gravity = 0;
+    myGamePiece.gravity = 5.0;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
