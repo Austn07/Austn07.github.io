@@ -116,7 +116,7 @@ function component(width, height, color, x, y, type) {
             this.y = rockbottom;
             this.gravitySpeed = 0;
 		}
-		var skyhigh = myGameArea.canvas.height;
+		var skyhigh = myGameArea.canvas.height - this.height;
 		if (this.y < skyhigh) {
 			this.y = skyhigh;
 			this.gravitySpeed = 0;
@@ -160,7 +160,7 @@ function updateGameArea() {
         myObstacles.push(new component(10, x - height - gap, "white", x, height + gap));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
+        myObstacles[i].x += -5;
         myObstacles[i].update();
     }
     myScore.text="SCORE: " + myGameArea.frameNo;
