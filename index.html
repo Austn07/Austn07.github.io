@@ -120,7 +120,7 @@ function updateGameArea() {
     if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
     myGamePiece.newPos();    
     myGamePiece.update();
-	
+	}
     this.newPos = function() {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
