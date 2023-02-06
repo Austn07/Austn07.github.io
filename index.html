@@ -15,7 +15,7 @@ canvas {
   }
 
  body{
-		  background-color: red;
+		  background-color: black;
 		}
 		h1{
 		  color: purple;
@@ -115,6 +115,11 @@ function component(width, height, color, x, y, type) {
         if (this.y > rockbottom) {
             this.y = rockbottom;
             this.gravitySpeed = 0;
+		}
+		var skyhigh = myGameArea.canvas.height + this.height;
+		if (this.y < skyhigh) {
+			this.y = skyhigh;
+			this.gravitySpeed = 0;
         }
     }
     this.crashWith = function(otherobj) {
