@@ -69,12 +69,32 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
+
 		window.addEventListener('keydown', function (e) {
-		  myGameArea.key = e.keyCode;
-		})
-        window.addEventListener('keyup', function (e) {
-          myGameArea.key = false;
-        })
+		  switch(e.keyCode) {
+			case 37: // left arrow
+			  myGamePiece.speedX = -1;
+			  break;
+			case 38: // up arrow
+			  myGamePiece.speedY = -1;
+			  break;
+			case 39: // right arrow
+			  myGamePiece.speedX = 1;
+			  break;
+			case 40: // down arrow
+			  myGamePiece.speedY = 1;
+			  break;
+		  }
+		window.addEventListener('keyup', function (e) {
+			myGamePiece.speedX = 0;
+			myGamePiece.speedY = 0;
+		});
+		function updateGameArea() {
+			// ...
+		myGamePiece.newPos();
+			// ...
+		}
+
       },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
