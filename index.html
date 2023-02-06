@@ -116,6 +116,11 @@ function component(width, height, color, x, y, type) {
             this.y = rockbottom;
             this.gravitySpeed = 0;
 		}
+		if (this.y < rockbottom) { 
+            //allow movement only if rockbottom is reached 
+            this.x += this.speedX;
+            this.y += this.speedY + this.gravitySpeed;
+        }
 		var halfHeight = myGameArea.canvas.height / 2;
         if (this.y < halfHeight) {
             this.y = halfHeight;
