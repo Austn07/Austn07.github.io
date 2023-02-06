@@ -76,31 +76,7 @@ var myGameArea = {
     }
 }
 
-window.addEventListener('keydown', function (e) {
-		  switch(e.keyCode) {
-			case 37: // left arrow
-			  myGamePiece.speedX = -1;
-			  break;
-			case 38: // up arrow
-			  myGamePiece.speedY = -1;
-			  break;
-			case 39: // right arrow
-			  myGamePiece.speedX = 1;
-			  break;
-			case 40: // down arrow
-			  myGamePiece.speedY = 1;
-			  break;
-		  }
-		window.addEventListener('keyup', function (e) {
-			myGamePiece.speedX = 0;
-			myGamePiece.speedY = 0;
-		});
-		function updateGameArea() {
-			// ...
-		myGamePiece.newPos();
-			// ...
-		}
-		
+
 function component(width, height, color, x, y, type) {
     this.type = type;
     this.score = 0;
