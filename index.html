@@ -110,21 +110,16 @@ function component(width, height, color, x, y, type) {
         this.hitWalls();
     }
     this.hitWalls = function() {
-        var rockbottom = myGameArea.canvas.height - this.height;
-        if (this.y > rockbottom) {
-            this.y = rockbottom;
-            this.gravitySpeed = 0;
-		}
-		if (this.y < rockbottom) { 
-            //allow movement only if rockbottom is reached 
-            this.x += this.speedX;
-            this.y += this.speedY + this.gravitySpeed;
-        }
-		var halfHeight = myGameArea.canvas.height / 2;
-        if (this.y < halfHeight) {
+        var halfHeight = myGameArea.canvas.height / 2;
+        var rockBottom = myGameArea.canvas.height - this.height;
+        if (this.y > halfHeight) {
             this.y = halfHeight;
+            this.gravitySpeed = -(this.gravitySpeed * 0.5); // reduce the gravity speed by 50% so that it will fall back down to rockbottom 
+        } 
+		if (this.y > rockBottom) {
+            this.y = rockBottom;
             this.gravitySpeed = 0;
-		}
+        }
     }
     this.crashWith = function(otherobj) {
         var myleft = this.x;
