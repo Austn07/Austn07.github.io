@@ -117,7 +117,7 @@ function component(width, height, color, x, y, type) {
             this.gravitySpeed = 0;
 		}
 		var halfHeight = myGameArea.canvas.height / 2;
-        if (this.y > halfHeight) {
+        if (this.y < halfHeight) {
             this.y = halfHeight;
             this.gravitySpeed = 0;
 		}
