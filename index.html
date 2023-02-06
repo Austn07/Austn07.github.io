@@ -108,14 +108,16 @@ function component(width, height, color, x, y, type) {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
         this.y += this.speedY + this.gravitySpeed;
-        this.hitBottom();
-		this.hitTop();
+        this.hitTop();
+		this.hitBottom();
+		
     }
 	this.hitTop = function() {
 		var skyhigh = myGameArea.canvas.height
 		if (this.y < skyhigh) {
 			this.y = skyhigh;
 			this.gravitySpeed = 0;
+			
     this.hitBottom = function() {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
