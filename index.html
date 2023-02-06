@@ -70,7 +70,13 @@ var myGameArea = {
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
 
-		window.addEventListener('keydown', function (e) {
+      },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+window.addEventListener('keydown', function (e) {
 		  switch(e.keyCode) {
 			case 37: // left arrow
 			  myGamePiece.speedX = -1;
@@ -94,13 +100,7 @@ var myGameArea = {
 		myGamePiece.newPos();
 			// ...
 		}
-
-      },
-    clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-}
-
+		
 function component(width, height, color, x, y, type) {
     this.type = type;
     this.score = 0;
