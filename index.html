@@ -75,16 +75,16 @@ var myGameArea = {
         window.addEventListener('keydown', function (e) {
           switch (e.keyCode) {
             case 37: // left arrow
-              myGamePiece.speedX = -5;
+              myGamePiece.speedX -= -5;
               break;
             case 38: // up arrow
-              myGamePiece.speedY = -5;
+              myGamePiece.speedY -= -5;
               break;
             case 39: // right arrow
-              myGamePiece.speedX = 5;
+              myGamePiece.speedX += 5;
               break;
             case 40: // down arrow
-              myGamePiece.speedY = 5;
+              myGamePiece.speedY += 5;
               break;
           }
         })
