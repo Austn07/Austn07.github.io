@@ -55,7 +55,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "blue", 390, 10);
-    myGamePiece.gravity = .25;
+    myGamePiece.gravity = .1;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
@@ -75,7 +75,7 @@ var myGameArea = {
               myGamePiece.speedX = -5;
               break;
             case 38: // up arrow
-              myGamePiece.speedY = -7;
+              myGamePiece.speedY = -5;
               break;
             case 39: // right arrow
               myGamePiece.speedX = 5;
