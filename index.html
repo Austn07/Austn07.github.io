@@ -92,7 +92,7 @@ var myGameArea = {
 
         window.addEventListener('keyup', function (e) {
           myGamePiece.speedX = 0;
-          myGamePiece.speedY = .25;
+          myGamePiece.speedY = 0;
         })
 		window.addEventListener("keydown", function(e) {
 			// space and arrow keys
@@ -199,7 +199,8 @@ function everyinterval(n) {
 }
 
 function accelerate(n) {
-    myGamePiece.gravity = n;
+  if (n === 0) return;
+  myGamePiece.gravity = n;
 }
 </script>
 
