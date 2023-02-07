@@ -55,43 +55,40 @@ canvas {
 var myGamePiece;
 var myObstacles = [];
 var myScore;
-  var upPressed = false;
-  var downPressed = false;
-  var leftPressed = false;
-  var rightPressed = false;
 
-  function startGame() {
-    myGamePiece = new component(20, 20, "blue", 395, 10);
-    myGamePiece.gravity = .1;
+function startGame() {
+    myGamePiece = new component(20, 20, "blue", 395, myGameArea.canvas.height - 20);
+    myGamePiece.gravity = .07;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
-  }
+}
 
-  var myGameArea = {
+var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-      this.canvas.width = 850;
-      this.canvas.height = 350;
-      this.context = this.canvas.getContext("2d");
-      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-      this.frameNo = 0;
-      this.interval = setInterval(updateGameArea, 20);
-      window.addEventListener('keydown', function (e) {
-        switch (e.keyCode) {
-          case 37: // left arrow
-            leftPressed = true;
-            break;
-          case 38: // up arrow
-            upPressed = true;
-            break;
-          case 39: // right arrow
-            rightPressed = true;
-            break;
-          case 40: // down arrow
-            downPressed = true;
-            break;
-        }
-      });
+        this.canvas.width = 850;
+        this.canvas.height = 350;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        
+		window.addEventListener('keydown', function (e) {
+		  switch (e.keyCode) {
+			case 37: // left arrow
+			  myGamePiece.speedX = -5;
+			  break;
+			case 38: // up arrow
+			  myGamePiece.speedY = -4;
+			  break;
+			case 39: // right arrow
+			  myGamePiece.speedX = +5;
+			  break;
+			case 40: // down arrow
+			  myGamePiece.speedY = +5;
+			  break;
+		  }
+		})
 
         window.addEventListener('keyup', function (e) {
           myGamePiece.speedX = 0;
