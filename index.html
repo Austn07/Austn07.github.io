@@ -40,7 +40,7 @@ canvas {
 </style>
 	</head>
 	<br>
-<button style="width: 200px; height: 75px;" onmousedown="accelerate(-0.20)" onmouseup="accelerate(0.20)">"Jump"</button>
+<button style="width: 200px; height: 75px;" onmousedown="accelerate(-0.20)" onmouseup="accelerate(0.20)">Jump</button>
 		
 <p>Use the "Jump" button to, well... jump</p>
 <p>How long can you survive?</p>
@@ -55,7 +55,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "red", 10, 120);
-    myGamePiece.gravity = 1.00;
+    myGamePiece.gravity = .05;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
