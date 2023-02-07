@@ -55,7 +55,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "red", 10, 120);
-    myGamePiece.gravity = 5.0;
+    myGamePiece.gravity = 5.00;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
@@ -69,13 +69,31 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-
+        window.addEventListener('keydown', function (e) {
+          switch (e.keyCode) {
+            case 37: // left arrow
+              myGamePiece.speedX = -2;
+              break;
+            case 38: // up arrow
+              myGamePiece.speedY = -2;
+              break;
+            case 39: // right arrow
+              myGamePiece.speedX = 2;
+              break;
+            case 40: // down arrow
+              myGamePiece.speedY = 2;
+              break;
+          }
+        })
+        window.addEventListener('keyup', function (e) {
+          myGamePiece.speedX = 0;
+          myGamePiece.speedY = 0;
+        })
       },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
-
 
 function component(width, height, color, x, y, type) {
     this.type = type;
@@ -106,7 +124,7 @@ function component(width, height, color, x, y, type) {
         this.hitWalls();
     }
     this.hitWalls = function() {
-        var halfHeight = myGameArea.canvas.height / 2;
+        var halfHeight = myGameArea.canvas.height /2;
         var rockBottom = myGameArea.canvas.height - this.height;
         if (this.y < halfHeight) {
             this.y = halfHeight;
