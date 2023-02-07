@@ -89,6 +89,12 @@ var myGameArea = {
           myGamePiece.speedX = 0;
           myGamePiece.speedY = 0;
         })
+		window.addEventListener("keydown", function(e) {
+			// space and arrow keys
+			if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+				e.preventDefault();
+			}
+		}, false);
       },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
