@@ -55,7 +55,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "red", 10, 120);
-    myGamePiece.gravity = 5.00;
+    myGamePiece.gravity = 1.00;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
@@ -175,7 +175,7 @@ function updateGameArea() {
         minGap = 80;
         maxGap = 150;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(100, height, "white", x, 0));
+        myObstacles.push(new component(10, height, "white", x, 0));
         myObstacles.push(new component(100, x - height - gap, "white", x, height + gap));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
