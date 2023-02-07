@@ -55,7 +55,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "red", 100, 10);
-    myGamePiece.gravity = .05;
+    myGamePiece.gravity = 1;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
@@ -160,7 +160,7 @@ function component(width, height, color, x, y, type) {
 
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-    for (i = 0; i < myObstacles.length; i += 10) {
+    for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
             return;
         } 
