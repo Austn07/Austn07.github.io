@@ -40,7 +40,7 @@ canvas {
 </style>
 	</head>
 	<br>
-<button style="width: 200px; height: 75px;" onmousedown="accelerate(-5)" onmouseup="accelerate(0.20)">Jump</button>
+<button style="width: 200px; height: 75px;" onmousedown="accelerate(-1)" onmouseup="accelerate(0.20)">Jump</button>
 		
 <p>Use the "Jump" button to, well... jump</p>
 <p>How long can you survive?</p>
@@ -75,7 +75,7 @@ var myGameArea = {
               myGamePiece.speedX = -5;
               break;
             case 38: // up arrow
-              myGamePiece.speedY = -5;
+              myGamePiece.speedY = -10;
               break;
             case 39: // right arrow
               myGamePiece.speedX = 5;
