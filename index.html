@@ -72,20 +72,24 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-        window.addEventListener('keydown', function (e) {
-          if (keys[37]) {
-            myGamePiece.speedX = -5;
-          }
-          if (keys[38]) {
-            myGamePiece.speedY = -5;
-          }
-          if (keys[39]) {
-            myGamePiece.speedX = 5;
-          }
-          if (keys[40]) {
-            myGamePiece.speedY = 5;
-          }
-        })
+        
+		window.addEventListener('keydown', function (e) {
+		  switch (e.keyCode) {
+			case 37: // left arrow
+			  myGamePiece.speedX = -5;
+			  break;
+			case 38: // up arrow
+			  myGamePiece.speedY = -4;
+			  break;
+			case 39: // right arrow
+			  myGamePiece.speedX = +5;
+			  break;
+			case 40: // down arrow
+			  myGamePiece.speedY = +5;
+			  break;
+		  }
+		})
+
         window.addEventListener('keyup', function (e) {
           myGamePiece.speedX = 0;
           myGamePiece.speedY = .25;
