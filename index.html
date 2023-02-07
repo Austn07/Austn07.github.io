@@ -1,61 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <head>
-	  <title>Austin's Webpage</title>
-<style>
-canvas {
-  border:5px solid white;
-  background: black;
-  animation: mymove1 7s infinite;
-}
-
-@keyframes mymove1 {
-  50% {background-color: #001B50;}
-  }
-
- body{
-		  background-color: black;
-		}
-		h1{
-		  color: purple;
-          animation: mymove2 4s infinite;
-        }
-
-        @keyframes mymove2 {
-          50% {color: lime;}
-		}
-		h2{
-		  color: white
-		}
-		p{
-		  color: white
-		}
-		h4{
-		  color: white
-		}
-		li{
-		  color: white
-		}
-</style>
-	</head>
-	<br>
-<button style="width: 200px; height: 75px;" onmousedown="accelerate(-0.20)" onmouseup="accelerate(0.20)">"Jump"</button>
-		
-<p>Use the "Jump" button to, well... jump</p>
-<p>How long can you survive?</p>
-		
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<body onload="startGame()">
-<script>
-
 var myGamePiece;
 var myObstacles = [];
 var myScore;
 
 function startGame() {
     myGamePiece = new component(20, 20, "red", 10, 120);
-    myGamePiece.gravity = 5.0;
+    myGamePiece.gravity = 5.00;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
@@ -69,13 +18,31 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-
+        window.addEventListener('keydown', function (e) {
+          switch (e.keyCode) {
+            case 37: // left arrow
+              myGamePiece.speedX = -2;
+              break;
+            case 38: // up arrow
+              myGamePiece.speedY = -2;
+              break;
+            case 39: // right arrow
+              myGamePiece.speedX = 2;
+              break;
+            case 40: // down arrow
+              myGamePiece.speedY = 2;
+              break;
+          }
+        })
+        window.addEventListener('keyup', function (e) {
+          myGamePiece.speedX = 0;
+          myGamePiece.speedY = 0;
+        })
       },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
-
 
 function component(width, height, color, x, y, type) {
     this.type = type;
@@ -106,95 +73,4 @@ function component(width, height, color, x, y, type) {
         this.hitWalls();
     }
     this.hitWalls = function() {
-        var halfHeight = myGameArea.canvas.height / 2;
-        var rockBottom = myGameArea.canvas.height - this.height;
-        if (this.y < halfHeight) {
-            this.y = halfHeight;
-            this.gravitySpeed = -(this.gravitySpeed * 0.5); // reduce the gravity speed by 50% so that it will fall back down to rockbottom 
-        } 
-		if (this.y > rockBottom) {
-            this.y = rockBottom;
-            this.gravitySpeed = 0;
-        }
-    }
-    this.crashWith = function(otherobj) {
-        var myleft = this.x;
-        var myright = this.x + (this.width);
-        var mytop = this.y;
-        var mybottom = this.y + (this.height);
-        var otherleft = otherobj.x;
-        var otherright = otherobj.x + (otherobj.width);
-        var othertop = otherobj.y;
-        var otherbottom = otherobj.y + (otherobj.height);
-        var crash = true;
-        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-            crash = false;
-        }
-        return crash;
-    }
-}
-
-function updateGameArea() {
-    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-    for (i = 0; i < myObstacles.length; i += 1) {
-        if (myGamePiece.crashWith(myObstacles[i])) {
-            return;
-        } 
-    }
-    myGameArea.clear();
-    myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(150)) {
-        x = myGameArea.canvas.width;
-        minHeight = 150;
-        maxHeight = 200;
-        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-        minGap = 80;
-        maxGap = 150;
-        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(10, height, "white", x, 0));
-        myObstacles.push(new component(10, x - height - gap, "white", x, height + gap));
-    }
-    for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -5;
-        myObstacles[i].update();
-    }
-    myScore.text="SCORE: " + myGameArea.frameNo;
-    myScore.update();
-    myGamePiece.newPos();
-    myGamePiece.update();
-}
-
-function everyinterval(n) {
-    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-    return false;
-}
-
-function accelerate(n) {
-    myGamePiece.gravity = n;
-}
-</script>
-
-<br>
-<br>
-<h1>Welcome to My Webpage</h1>
-		<p>My Name is <u>AUSTIN</u></p>
-		<p>Yep :)</p>
-		<br>
-	  <h2>Calvin & Hobbes</h2>
-		<img src="https://i.cbc.ca/1.4688586.1527886359!/fileImage/httpImage/image.gif_gen/derivatives/original_1180/calvin-hobbes-first-comic.gif" width="450" height="125" alt="Calvin and Hobbes"/>
-		  <p>I added a picture of them above :)</p>
-	  <h4>Here's some bullets I found</h4>	  
-		<ul>
-		  <li>Bullet the first</li>
-		  <li>Bullet II</li>
-		  <li>Wow! A third Bullet Point!</li>
-		</ul>
-	  <h4>Also, here's a list</h4>
-		<ol>
-		  <li>There's numbers instead of bullets</li>
-		  <li>This one should be number 2</li>
-		  <li>Third time's the charm :)</li>
-		</ol>
-  </body>
-</html>
-
+        var halfHeight = myGameArea.canvas.height /
