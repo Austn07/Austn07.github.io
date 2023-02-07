@@ -57,7 +57,7 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(20, 20, "blue", 395, myGameArea.canvas.height - 20);
+    myGamePiece = new component(20, 20, "blue", 395, this.canvas.height - 20);
     myGamePiece.gravity = .07;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
@@ -135,8 +135,12 @@ function component(width, height, color, x, y, type) {
         this.hitWalls();
     }
     this.hitWalls = function() {
-        
-		
+        var halfHeight = myGameArea.canvas.height /2;
+		if (this.x > myGameArea.canvas.width - this.width) {
+		  this.x = myGameArea.canvas.width - this.width;
+		} else if (this.x < 0) {
+          this.x = 0;
+    }
         var rockBottom = myGameArea.canvas.height - this.height;
         if (this.y < halfHeight) {
             this.y = halfHeight;
@@ -146,11 +150,7 @@ function component(width, height, color, x, y, type) {
             this.y = rockBottom;
             this.gravitySpeed = 0;
         }
-		if (this.x > myGameArea.canvas.width - this.width) {
-			this.x = myGameArea.canvas.width - this.width;
-		} else if (this.x < 0) {
-			this.x = 0;
-	}
+    }
     this.crashWith = function(otherobj) {
         var myleft = this.x;
         var myright = this.x + (this.width);
