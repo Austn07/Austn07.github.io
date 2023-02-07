@@ -32,7 +32,7 @@ canvas {
 		  color: white
 		}
 		h4{
-		  color: white
+		  color: red
 		}
 		li{
 		  color: white
@@ -57,8 +57,8 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(20, 20, "blue", 395, this.canvas.height - 20);
-    myGamePiece.gravity = .07;
+    myGamePiece = new component(20, 20, "blue", 395, myGameArea.canvas.height - 20);
+    myGamePiece.gravity = .05;
     myScore = new component("30px", "Consolas", "white", 680, 40, "text");
     myGameArea.start();
 }
