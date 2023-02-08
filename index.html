@@ -137,7 +137,7 @@ function component(width, height, color, x, y, type) {
         this.hitWalls();
     }
     this.hitWalls = function() {
-        var leftRight = myGameArea.canvas.height - myGamePiece.height;
+        var halfHeight = myGameArea.canvas.height - myGamePiece.height;
 		if (this.x > myGameArea.canvas.width - this.width) {
 		  this.x = myGameArea.canvas.width - this.width;
 		} else if (this.x < 0) {
