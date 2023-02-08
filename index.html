@@ -138,7 +138,10 @@ function component(width, height, color, x, y, type) {
     }
     this.hitWalls = function() {
         var leftRight = myGameArea.canvas.height - myGamePiece.height;
-		
+		if (this.x > myGameArea.canvas.width - this.width) {
+		  this.x = myGameArea.canvas.width - this.width;
+		} else if (this.x < 0) {
+          this.x = 0;
     }
         var rockBottom = myGameArea.canvas.height - this.height;
         if (this.y < halfHeight) {
@@ -149,10 +152,6 @@ function component(width, height, color, x, y, type) {
             this.y = rockBottom;
             this.gravitySpeed = 0;
         }
-		if (this.x > myGameArea.canvas.width - this.width) {
-		  this.x = myGameArea.canvas.width - this.width;
-		} else if (this.x < 0) {
-          this.x = 0;
     }
     this.crashWith = function(otherobj) {
         var myleft = this.x;
