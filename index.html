@@ -74,11 +74,7 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-        this.restartGame = function() {
-          myGameArea.clear();
-          myGamePiece = new component(20, 20, "blue", 395, myGameArea.canvas.height + 200);
-		}
-	}
+        
 		window.addEventListener('keydown', function (e) {
 		  switch (e.keyCode) {
 			case 37: // left arrow
@@ -93,10 +89,6 @@ var myGameArea = {
 			case 40: // down arrow
 			  myGamePiece.speedY = +5;
 			  break;
-		    restartGame() function
-			if (e.keyCode == 82) { //keycode for the r key is 82
-			this.restartGame();
-			}
 		  }
 		})
 
