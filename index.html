@@ -149,10 +149,6 @@ function component(width, height, color, x, y, type) {
             this.y = rockBottom;
             this.gravitySpeed = 0;
         }
-		if (this.y < this.canvas.height) {
-			this.y = this.canvas.height;
-			this.gravitySpeed = 0;
-		}
     }
 	
     this.crashWith = function(otherobj) {
