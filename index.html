@@ -144,10 +144,7 @@ function component(width, height, color, x, y, type) {
           this.x = 0;
     }
         var rockBottom = myGameArea.canvas.height - this.height;
-        if (this.y < halfHeight) {
-            this.y = halfHeight;
-            this.gravitySpeed = -(this.gravitySpeed * 0.5); // reduce the gravity speed by 50% so that it will fall back down to rockbottom 
-        } 
+        
 		if (this.y > rockBottom) {
             this.y = rockBottom;
             this.gravitySpeed = 0;
