@@ -210,6 +210,20 @@ function accelerate(n) {
   if (n === 0) return;
   myGamePiece.gravity = n;
 } <!--checks if the argument given is 0. If it is, nothing happens. If it isn't, the myGamePiece object's gravity is set to the value of the argument given. used to simulate acceleration and gravity in a game.-->
+
+var x = document.getElementById("demo");
+
+function getLocation() {<!--start of geolocation thingy-->
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}   
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}<!--end of Geolocation thingy-->
 </script>
 
 <br>
@@ -258,6 +272,10 @@ function accelerate(n) {
         <input type="range" name="Games" id="Games" value="3" min="1" max="10">
       <span>Never</span>
     </section> <!--Form End-->
+    <br>
+	<p>Click the button to get your coordinates.</p>
+      <button onclick="getLocation()">Location button thingy</button><!--Geolocation button-->
+    <p id="demo"></p>
   </body>
 </html>
 
