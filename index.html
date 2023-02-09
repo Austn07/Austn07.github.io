@@ -148,11 +148,10 @@ function component(width, height, color, x, y, type) {
           this.x = 0;
     }
         var rockBottom = myGameArea.canvas.height - this.height;
-        
 		if (this.y > rockBottom) {
             this.y = rockBottom;
             this.gravitySpeed = 0;
-        }
+        } <!-- Preventing myGamePiece from going through the floor-->
     }
 	
     this.crashWith = function(otherobj) {
@@ -181,36 +180,36 @@ function updateGameArea() {
     }
     myGameArea.clear();
     myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(75)) { //controls how often there are obstacles
+    if (myGameArea.frameNo == 1 || everyinterval(75)) { <!--controls how often there are obstacles-->
         x = myGameArea.canvas.width;
-        minHeight = 170; //minimum height of the obstacles
-        maxHeight = 260; //maximus height of the obstacles
-        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight); //randomizes the heights of the obstacles within their min and max
-        minGap = 80; //min gap inbetween obstacles
-        maxGap = 150; //max gap between obstacles
-        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap); //randomizes the max and min gap between the top and bottom obstacles
-        myObstacles.push(new component(10, height, "white", x, 0)); //top obstacle details (width, height, color, direction obstacle is pointing, height obstacle starts at)
-        myObstacles.push(new component(10, x - height - gap, "white", x, height + gap)); //bottom obstacle details (width, height, color, direction obstacle is pointing, height obstacle starts at)
+        minHeight = 170; <!--minimum height of the obstacles-->
+        maxHeight = 260; <!--maximus height of the obstacles-->
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight); <!--randomizes the heights of the obstacles within their min and max-->
+        minGap = 80; <!--min gap inbetween obstacles-->
+        maxGap = 150; <!--max gap between obstacles-->
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap); <!--randomizes the max and min gap between the top and bottom obstacles-->
+        myObstacles.push(new component(10, height, "white", x, 0)); <!--top obstacle details (width, height, color, direction obstacle is pointing, height obstacle starts at)-->
+        myObstacles.push(new component(10, x - height - gap, "white", x, height + gap)); <!--bottom obstacle details (width, height, color, direction obstacle is pointing, height obstacle starts at)-->
     }
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].x += -5;
         myObstacles[i].update();
-    } // loops through an array of obstacles, updating the x coordinate (aka the speed) of each obstacle by -5 and then calling the update() function for each obstacle.
+    } <!--loops through an array of obstacles, updating the x coordinate (aka the speed) of each obstacle by -5 and then calling the update() function for each obstacle-->
     myScore.text="SCORE: " + myGameArea.frameNo;
     myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
-} //updates the score text to display the current frame number (which acts as the score in this example) and then calls the newPos() and update() functions for the game piece. Whichallows the player's position and the game score to be updated each time the game loop runs.
+} <!--updates the score text to display the current frame number (which acts as the score in this example) and then calls the newPos() and update() functions for the game piece. Whichallows the player's position and the game score to be updated each time the game loop runs.-->
 
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
-} //Everyinterval() is Javascript and is typically used in game programming for determining when to fire a projectile or spawn an enemy. it checks if the frame number (myGameArea.frameNo) divided by n has a remainder of 0, and returns true if it does and false if not.
+} <!--Everyinterval() is Javascript and is typically used in game programming for determining when to fire a projectile or spawn an enemy. it checks if the frame number (myGameArea.frameNo) divided by n has a remainder of 0, and returns true if it does and false if not-->
 
 function accelerate(n) {
   if (n === 0) return;
   myGamePiece.gravity = n;
-} //checks if the argument given is 0. If it is, nothing happens. If it isn't, the myGamePiece object's gravity is set to the value of the argument given. used to simulate acceleration and gravity in a game.
+} <!--checks if the argument given is 0. If it is, nothing happens. If it isn't, the myGamePiece object's gravity is set to the value of the argument given. used to simulate acceleration and gravity in a game.-->
 </script>
 
 <br>
@@ -233,7 +232,7 @@ function accelerate(n) {
 		  <br>
 		  <br>
 	  <h1>Add Another Title Here<h1>    
-	<table> 
+	<table> <!--Table Start-->
 	  <thead>
 		<tr>
 		  <th scope="col">My Top Games</th>
@@ -250,15 +249,15 @@ function accelerate(n) {
 		  <td>Fettuccini Alfredo</td>
 		</tr>
 	  </tbody>
-	</table>
+	</table> <!--Table End-->
 	<br>
-	<section class="Games">
+	<section class="Games"> <!-- Form Start-->
       <label for="Games">How often do you play games?</label>
       <br>
       <span>A Lot</span>
         <input type="range" name="Games" id="Games" value="3" min="1" max="10">
       <span>Never</span>
-    </section>
+    </section> <!--Form End-->
   </body>
 </html>
 
