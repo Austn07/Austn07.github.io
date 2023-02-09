@@ -3,7 +3,7 @@
   <body>
     <head>
 	  <title>Austin's Webpage</title>
-	    <link href="style.css" type="text/css" rel="stylesheet">
+
 <style>
 canvas {
   border:5px solid white;
@@ -203,7 +203,7 @@ function updateGameArea() {
     myGameArea.frameNo += 1;
     if (myGameArea.frameNo == 1 || everyinterval(75)) { //controls how often there are obstacles
         x = myGameArea.canvas.width;
-        minHeight = 150; //minimum height of the obstacles
+        minHeight = 170; //minimum height of the obstacles
         maxHeight = 260; //maximus height of the obstacles
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight); //randomizes the heights of the obstacles within their min and max
         minGap = 80; //min gap inbetween obstacles
