@@ -245,7 +245,12 @@ function showPosition(position) {
 		<p>I added a picture of them above :)</p>
 		  <br>
 		  <br>
-	  <h1>Add Another Title Here<h1>    
+	  <h1>Add Another Title Here<h1> 
+	  <aside><!--(Start)puts iframe to the right of h1 title above-->
+	    <h2>HTML Iframes</h2><!--iFrame (webpageinside of my webpage)-->
+	      <p>You can also use the CSS height and width properties to specify the size of the iframe:</p>
+	    <iframe src="demo_iframe.htm" style="height:500px;width:1000px" title="Iframe Example"></iframe>
+	  </aside><!--end aside-->	
 	<table> <!--Table Start-->
 	  <thead>
 		<tr>
@@ -276,9 +281,7 @@ function showPosition(position) {
 	<h3>Click the button to get your coordinates.</h3><!--Geolocation button start-->
       <button onclick="getLocation()">Location button thingy</button>
     <p id="demo"></p><!--Geolocation button end-->
-	<h2>HTML Iframes</h2><!--iFrame (webpageinside of my webpage)-->
-	<p>You can also use the CSS height and width properties to specify the size of the iframe:</p>
-	<iframe src="demo_iframe.htm" style="height:500px;width:1000px" title="Iframe Example"></iframe>
+	
   </body>
 </html>
 
