@@ -191,7 +191,7 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].x += -5;
         myObstacles[i].update();
-    } // loops through an array of obstacles, updating the x coordinate of each obstacle by -5 and then calling the update() function for each obstacle.
+    } // loops through an array of obstacles, updating the x coordinate (aka the speed) of each obstacle by -5 and then calling the update() function for each obstacle.
     myScore.text="SCORE: " + myGameArea.frameNo;
     myScore.update();
     myGamePiece.newPos();
@@ -214,7 +214,6 @@ function accelerate(n) {
 <h1>Welcome to My Webpage</h1>
 		<h2>My Name is <u>AUSTIN</u></h2>
 		<h3> <u>Steps for creating a turn-based battle system in your game:</u></h3>
-		<br>
 		<ol>
 			<li> Create an array of enemy objects: You can populate this array with randomly generated enemies or via a map editor. </li>
 			<li>Write functions to handle turns, attacks, and damage calculations: These functions need to calculate how much damage is done, who is attacking and how they are attacking, and what effects the attack has. </li>
@@ -237,6 +236,10 @@ function accelerate(n) {
 		    <th scope="col">My Top Games</th>
 			<th scope="col">My Favorite Foods</th>
 		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+		    <td>
   </body>
 </html>
 
