@@ -68,16 +68,16 @@ function startGame() {
 }
 
 var myGameArea = {
-    canvas : document.createElement("canvas"),
-    start : function() {
-        this.canvas.width = 900;
+    canvas : document.createElement("canvas"), <!--creates a canvas-->
+    start : function() {<!--characteristics of the canvas-->
+        this.canvas.width = 850;
         this.canvas.height = 350;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
         
-		window.addEventListener('keydown', function (e) {
+		window.addEventListener('keydown', function (e) {<!--Allows for the arrow keys to be used-->
 		  switch (e.keyCode) {
 			case 37: // left arrow
 			  myGamePiece.speedX = -5;
@@ -98,8 +98,7 @@ var myGameArea = {
           myGamePiece.speedX = 0;
           myGamePiece.speedY = 2;
         })
-		window.addEventListener("keydown", function(e) {
-			// space and arrow keys
+		window.addEventListener("keydown", function(e) {<!--Prevents arrow keys and spacebar from making the webpage scroll-->
 			if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
 				e.preventDefault();
 			}
@@ -152,7 +151,7 @@ function component(width, height, color, x, y, type) {
         } <!-- Preventing myGamePiece from going through the floor-->
     }
 	
-    this.crashWith = function(otherobj) {
+    this.crashWith = function(otherobj) {<!--things mygamepiece acan collide with-->
         var myleft = this.x;
         var myright = this.x + (this.width);
         var mytop = this.y;
