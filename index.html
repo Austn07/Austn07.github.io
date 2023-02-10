@@ -42,10 +42,16 @@
 		float: right;
 		font-style: italic;
 	}
+	.moving-gif {<!--mario running-->
+    position: absolute;
+    left: 0;
+	}
 </style><!--End of style-->
 	</head>
 	<br>
 <button style= "color: orange; font-size: 15; width: 200px; height: 75px; border: 10px solid orange; background: black;" onmousedown="accelerate(-.2)" onmouseup="accelerate(.1)">Float</button>
+
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmario.fandom.com%2Fwiki%2FSuper_Mario_World%2FGallery&psig=AOvVaw2KZFcD0ODgAf2IN4aHGsTi&ust=1676076847978000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCLj3kv3eif0CFQAAAAAdAAAAABAk" class="moving-gif" /><!--Mario running gif-->
 	
 <h3>You can now move on the arrow keys!</h3>
 <br>
@@ -221,6 +227,12 @@ function showPosition(position) {
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }<!--end of Geolocation thingy-->
+let gif = document.querySelector(".moving-gif");
+
+setInterval(() => {<!--Running Mario gif details-->
+    let left = parseInt(gif.style.left);
+    gif.style.left = (left + 1) + "px";
+}, 10)<!--end mario running details-->
 </script>
 
 <br>
