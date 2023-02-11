@@ -42,7 +42,7 @@
 		float: right;
 		font-style: italic;
 	}
-	.moving-gif {<!--mario running-->
+	Mariorun.gif {<!--mario running-->
     position: absolute;
     left: 0;
 	}
@@ -227,9 +227,9 @@ function showPosition(position) {
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }<!--end of Geolocation thingy-->
-let gif = document.querySelector(".moving-gif");
 
-setInterval(() => {<!--Running Mario gif details-->
+let gif = document.querySelector("Mariorun.gif");<!--Running Mario gif details-->
+setInterval(() => {
     let left = parseInt(gif.style.left);
     gif.style.left = (left + 1) + "px";
 }, 10)<!--end mario running details-->
