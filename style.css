@@ -51,4 +51,8 @@
 	.uppercase{ <!-- anything using this class will be in all caps-->
 	  text-transform: uppercase;
 	}
+	button:hover {
+		color: lightorange;
+		border: lightorange;
+	}
 </style><!--End of style-->
