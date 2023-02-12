@@ -45,8 +45,8 @@
 	background: black
 	}
 	.mario-gif{ <!-- class for mario running gif-->
-		height: 75px;
-		width: 75px;
+		height: 100px;
+		width: 100px;
 	}
 	.uppercase{ <!-- anything using this class will be in all caps-->
 	  text-transform: uppercase;
