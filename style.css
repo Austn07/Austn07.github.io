@@ -41,7 +41,7 @@
 	font-size: 25px;
 	width: 200px;
 	height: 75px;
-	border: 10px solid darkorange;
+	border: 10px darkorange;
 	background: black
 	}
 	.mario-gif{ <!-- class for mario running gif-->
