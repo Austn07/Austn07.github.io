@@ -41,7 +41,7 @@
 	font-size: 25px;
 	width: 200px;
 	height: 75px;
-	border: 10px darkorange;
+	border: 10px solid darkorange;
 	background: black
 	}
 	.mario-gif{ <!-- class for mario running gif-->
@@ -53,6 +53,10 @@
 	}
 	button:hover { <!--when hover over button, changes it to light orange instead of dark orange (Currently Not Working)-->
 		color: lightorange;
-		border: lightorange;
+		font-size: 25px;
+		width: 200px;
+		height: 75px;
+		border: 10px solid lightorange;
+		background: black:
 	}
 </style><!--End of style-->
