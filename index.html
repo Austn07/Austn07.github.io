@@ -185,12 +185,6 @@ function showPosition(position) {
     x.innerHTML="Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }<!--end of Geolocation thingy-->
-
-let gif = document.querySelector("Mariorun.gif");<!--Running Mario gif details-->
-setInterval(() => {
-    let left = parseInt(gif.style.left);
-    gif.style.left = (left + 1) + "px";
-}, 10)<!--end mario running details-->
 </script>
 
 <br>
