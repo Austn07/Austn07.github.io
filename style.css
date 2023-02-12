@@ -51,7 +51,7 @@
 	.uppercase{ <!-- anything using this class will be in all caps-->
 	  text-transform: uppercase;
 	}
-	button:hover {
+	button:hover { <!--when hover over button, changes it to light orange instead of dark orange (Currently Not Working)-->
 		color: lightorange;
 		border: lightorange;
 	}
