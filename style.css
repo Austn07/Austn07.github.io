@@ -1,7 +1,5 @@
 <style> <!--(start of style) Characteristics for elements below-->
 	canvas {
-	  border-width: 850px;
-	  border-height: 350px;
 	  border-color: 5px cyan;<!--border currently not working-->
       background-color: black;
 	  animation: mymove1 7s infinite;
