@@ -36,7 +36,7 @@ var myGameArea = {
     start : function() {<!--characteristics of the canvas-->
         this.canvas.width = 850;
         this.canvas.height = 350;
-		this.canvas.border = 5px solid cyan
+		this.canvas.style.border = 5px solid cyan
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
