@@ -16,7 +16,7 @@
 	p{color: white}
 	li{color: white}
 	table{color: cyan;
-		  border:2px cyan;
+		  border: 2px cyan;
 		  width: 200px;
 		  height: 100px;
 	}
@@ -41,7 +41,7 @@
 	font-size: 25px;
 	width: 200px;
 	height: 75px;
-	border: 10px solid darkorange;
+	border: 7px solid darkorange;
 	background: black
 	}
 	.mario-gif{ <!-- class for mario running gif-->
@@ -52,11 +52,11 @@
 	  text-transform: uppercase;
 	}
 	button:hover { <!--when hover over button, changes it to light orange instead of dark orange (Currently Not Working)-->
-		color: lightorange;
+		color: yellow;
 		font-size: 25px;
 		width: 200px;
 		height: 75px;
-		border: 10px solid lightorange;
+		border: 10px solid yellow;
 		background: black:
 	}
 </style><!--End of style-->
