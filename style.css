@@ -1,5 +1,6 @@
 <style> <!--(start of style) Characteristics for elements below-->
 	canvas {
+	  border-width: 850px;
 	  border-color: 5px cyan;<!--border currently not working-->
       background-color: black;
 	  animation: mymove1 7s infinite;
@@ -10,11 +11,11 @@
       animation: mymove2 4s infinite;}
     @keyframes mymove2 {50% {color: lime;}
 	}
-	h2{color: white}
-	h3{color: cyan}
-	h4{color: red}
-	p{color: white}
-	li{color: white}
+	h2{color: white;}
+	h3{color: cyan;}
+	h4{color: red;}
+	p{color: white;}
+	li{color: white;}
 	table{color: cyan;
 		  border: 2px cyan;
 		  width: 200px;
@@ -22,7 +23,7 @@
 	}
 	td, th {border: 1px solid white;
 			width: 100px;
-			height: 50px
+			height: 50px;
 	}
 	thead{color: red}
 	section{color: white;
@@ -42,7 +43,7 @@
 	width: 200px;
 	height: 75px;
 	border: 7px solid darkorange;
-	background: black
+	background: black;
 	}
 	.mario-gif{ <!-- class for mario running gif-->
 		height: 100px;
@@ -52,11 +53,11 @@
 	  text-transform: uppercase;
 	}
 	button:hover { <!--when hover over button, changes it to light orange instead of dark orange (Currently Not Working)-->
-		color: yellow !important;
+		color: yellow;
 		font-size: 25px;
 		width: 200px;
 		height: 75px;
 		border: 7px solid yellow;
-		background: black:
+		background: black;
 	}
 </style><!--End of style-->
