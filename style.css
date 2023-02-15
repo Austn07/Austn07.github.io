@@ -1,9 +1,7 @@
 <style> <!--(start of style) Characteristics for elements below-->
 	canvas {
-	  
       background-color: black;
-	  animation: mymove1 7s infinite;
-	  
+	  animation: mymove1 7s infinite;	  
 	}
 	@keyframes mymove1 {50% {background-color: #001B50;}}
 	body{background-color: black;}
