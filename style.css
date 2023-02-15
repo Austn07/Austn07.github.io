@@ -3,6 +3,8 @@
 	  border-color: 5px cyan;<!--border currently not working-->
       background-color: black;
 	  animation: mymove1 7s infinite;
+	  height: 350px;
+	  width: 850px;
 	}
 	@keyframes mymove1 {50% {background-color: #001B50;}}
 	body{background-color: black;}
