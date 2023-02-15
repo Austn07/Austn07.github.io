@@ -58,7 +58,7 @@
 	}
 	button:hover { <!--when hover over button, changes it to light orange instead of dark orange (Currently Not Working)-->
 		color: yellow;
-		font-size: 25px;
+		font-size: 35px;
 		width: 200px;
 		height: 75px;
 		border: 7px solid yellow;
