@@ -1,10 +1,13 @@
 <style> <!--(start of style) Characteristics for elements below-->
 	canvas {
-	  border-color: 5px cyan;<!--border currently not working-->
-      background-color: black;
-	  animation: mymove1 7s infinite;
 	  height: 350px;
 	  width: 850px;
+	  border-color: 5px cyan;<!--border currently not working-->
+	  border-height: 350px;
+	  border-width: 850px;
+      background-color: black;
+	  animation: mymove1 7s infinite;
+	  
 	}
 	@keyframes mymove1 {50% {background-color: #001B50;}}
 	body{background-color: black;}
