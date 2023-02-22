@@ -1,6 +1,7 @@
 <style> <!--(start of style) Characteristics for elements below-->
 	canvas {
       background-color: black;
+	  border-color: cyan
 	  animation: mymove1 7s infinite;	  
 	@keyframes mymove1 {50% {background-color: #001B50;}}
 	}
@@ -60,10 +61,8 @@
 	  position: relative;
 	  width: 100%;
 	  height: 100%;
-	  
 	  position: absolute;
-	
-	  top: 50;
+	  top: 5;
 	  animation: move-right 10s steps(1000) infinite;
 	}
 	@keyframes move-right {

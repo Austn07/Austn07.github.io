@@ -6,189 +6,17 @@
 
 	  <link href='./style.css' rel='stylesheet'><!-- link to my style sheet(code for the design of the webpage)-->
 	</head>
-	<br>
-<button onmousedown="accelerate(-.2)" onmouseup="accelerate(.1)" class='uppercase'>Float</button>
-<br>
+
 <div class="mariorun">
   <img src="https://thumbs.gfycat.com/DisgustingPlumpAiredale.webp" style= "height: 100px; width: 100px;" "class="mariorun" /><!--Mario running gif-->
 </div>
+<nav>
+  <a href="./index.html">Main Page</a>
+  <a href="./game.html">My Game!</a>
+</nav>
 <br>
-<h3>You can now move on the arrow keys!</h3>
 <br>
-<h3>Use the Float button to discover that there is no top of the border yet :) </h3>
-<h3>How long can you survive?</h3>
-		
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<body onload="startGame()">
-<script>
-
-var myGamePiece;
-var myObstacles = [];
-var myScore;
-
-function startGame() {
-    myGamePiece = new component(20, 20, "blue", 395, myGameArea.canvas.height + 200);<!--components of mygamepiece-->
-    myGamePiece.gravity = .07;<!--mygamepiece gravity-->
-    myScore = new component("30px", "Comic Sans", "cyan", 650, 40, "text");<!--components of myscore-->
-    myGameArea.start();
-}
-
-var myGameArea = {
-    canvas : document.createElement("canvas"), <!--creates a canvas-->
-    start : function() {<!--characteristics of the canvas-->
-        this.canvas.width = 850;
-        this.canvas.height = 350;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 20);
-        
-		window.addEventListener('keydown', function (e) {<!--Allows for the arrow keys to be used-->
-		  switch (e.keyCode) {
-			case 37: // left arrow
-			  myGamePiece.speedX = -5;
-			  break;
-			case 38: // up arrow
-			  myGamePiece.speedY = -4;
-			  break;
-			case 39: // right arrow
-			  myGamePiece.speedX = +5;
-			  break;
-			case 40: // down arrow
-			  myGamePiece.speedY = +5;
-			  break;
-		  }
-		})
-
-        window.addEventListener('keyup', function (e) {
-          myGamePiece.speedX = 0;
-          myGamePiece.speedY = 2;
-        })
-		window.addEventListener("keydown", function(e) {<!--Prevents arrow keys and spacebar from making the webpage scroll-->
-			if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-				e.preventDefault();
-			}
-		}, false);
-      },
-    clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-}
-
-function component(width, height, color, x, y, type) {
-    this.type = type;
-    this.score = 0;
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
-    this.x = x;
-    this.y = y;
-    this.gravity = 0;
-    this.gravitySpeed = 0;
-    this.update = function() {
-        ctx = myGameArea.context;
-        if (this.type == "text") {
-            ctx.font = this.width + " " + this.height;
-            ctx.fillStyle = color;
-            ctx.fillText(this.text, this.x, this.y);
-        } else {
-            ctx.fillStyle = color;
-            ctx.fillRect(this.x, this.y, this.width, this.height);
-        }
-    }
-    this.newPos = function() {
-        this.gravitySpeed += this.gravity;
-        this.x += this.speedX;
-        this.y += this.speedY + this.gravitySpeed;
-        this.hitWalls();
-    }
-    this.hitWalls = function() {
-        var halfHeight = myGameArea.canvas.height - myGamePiece.height;
-		if (this.x > myGameArea.canvas.width - this.width) {
-		  this.x = myGameArea.canvas.width - this.width;
-		} else if (this.x < 0) {
-          this.x = 0;
-    }
-        var rockBottom = myGameArea.canvas.height - this.height;
-		if (this.y > rockBottom) {
-            this.y = rockBottom;
-            this.gravitySpeed = 0;
-        } <!-- Preventing myGamePiece from going through the floor-->
-    }
-	
-    this.crashWith = function(otherobj) {<!--things mygamepiece acan collide with-->
-        var myleft = this.x;
-        var myright = this.x + (this.width);
-        var mytop = this.y;
-        var mybottom = this.y + (this.height);
-        var otherleft = otherobj.x;
-        var otherright = otherobj.x + (otherobj.width);
-        var othertop = otherobj.y;
-        var otherbottom = otherobj.y + (otherobj.height);
-        var crash = true;
-        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-            crash = false;
-        }
-        return crash;
-    }
-}
-
-function updateGameArea() {
-    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-    for (i = 0; i < myObstacles.length; i += 1) {
-        if (myGamePiece.crashWith(myObstacles[i])) {
-            return;
-        } 
-    }
-    myGameArea.clear();
-    myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(75)) { <!--controls how often there are obstacles-->
-        x = myGameArea.canvas.width;
-        minHeight = 170; <!--minimum height of the obstacles-->
-        maxHeight = 260; <!--maximus height of the obstacles-->
-        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight); <!--randomizes the heights of the obstacles within their min and max-->
-        minGap = 80; <!--min gap inbetween obstacles-->
-        maxGap = 150; <!--max gap between obstacles-->
-        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap); <!--randomizes the max and min gap between the top and bottom obstacles-->
-        myObstacles.push(new component(10, height, "white", x, 0)); <!--top obstacle details (width, height, color, direction obstacle is pointing, height obstacle starts at)-->
-        myObstacles.push(new component(10, x - height - gap, "white", x, height + gap)); <!--bottom obstacle details (width, height, color, direction obstacle is pointing, height obstacle starts at)-->
-    }
-    for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -5;
-        myObstacles[i].update();
-    } <!--loops through an array of obstacles, updating the x coordinate (aka the speed) of each obstacle by -5 and then calling the update() function for each obstacle-->
-    myScore.text="SCORE: " + myGameArea.frameNo;
-    myScore.update();
-    myGamePiece.newPos();
-    myGamePiece.update();
-} <!--updates the score text to display the current frame number (which acts as the score in this example) and then calls the newPos() and update() functions for the game piece. Whichallows the player's position and the game score to be updated each time the game loop runs.-->
-
-function everyinterval(n) {
-    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-    return false;
-} <!--Everyinterval() is Javascript and is typically used in game programming for determining when to fire a projectile or spawn an enemy. it checks if the frame number (myGameArea.frameNo) divided by n has a remainder of 0, and returns true if it does and false if not-->
-
-function accelerate(n) {
-  if (n === 0) return;
-  myGamePiece.gravity = n;
-} <!--checks if the argument given is 0. If it is, nothing happens. If it isn't, the myGamePiece object's gravity is set to the value of the argument given. used to simulate acceleration and gravity in a game.-->
-
-var x = document.getElementById("demo");
-
-function getLocation() {<!--start of geolocation thingy-->
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}   
-function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}<!--end of Geolocation thingy-->
-</script>
-
+<br>
 <br>
 <br>
 <h1 class='uppercase'>Welcome to My Webpage</h1>
@@ -242,6 +70,22 @@ function showPosition(position) {
       <button onclick="getLocation()">Location</button>
     <p id="demo"></p><!--Geolocation button end-->
 	
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {<!--start of geolocation thingy-->
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}   
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}<!--end of Geolocation thingy-->
+</script>
+
   </body>
 </html>
 
