@@ -73,5 +73,21 @@
 		transform: translateX(100%);
 	  }
 	}
-
+	.navbar {
+		background:cyan;
+	}
+	.nav-link,
+	.navbar-brand {
+		color: #fff;
+		cursor: pointer;
+	}
+	.nav-link {
+		margin-right: 1em !important;
+	}
+	.nav-link:hover {
+		color: #000;
+	}
+	.navbar-collapse {
+		justify-content: flex-end;
+	}
 </style><!--End of style-->
