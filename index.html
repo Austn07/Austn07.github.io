@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <head>
+	  <title>Austin's Webpage</title>
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	  <link href='./style.css' rel='stylesheet'><!-- link to my style sheet(code for the design of the webpage)-->
+	</head>
+<nav class="navbar navbar-expand-md">
+	<a class="navbar-brand" href="#">Logo</a>
+	<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="main-navigation">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="./index.html">Main Page</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="./game.html">My Game!</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div class="mariorun">
+  <img src="https://thumbs.gfycat.com/DisgustingPlumpAiredale.webp" style= "height: 100px; width: 100px;" "class="mariorun" /><!--Mario running gif-->
+</div>
+<br>
+<br>
+<br>
+<br>
+<h1 class='uppercase'>Welcome to My Webpage</h1>
+		<h2>My Name is <u>AUSTIN</u></h2>
+			<h4>I am working on making the game above work like an <em>Undertale</em> fight.</h4>
+			<h4>It is a work in progress for sure haha</h4>
+		<h3> <u>Steps for creating a turn-based battle system in your game:</u></h3>
+		<ol> <!--Numbered list start-->
+			<li>Create an array of enemy objects: You can populate this array with randomly generated enemies or via a map editor. </li>
+			<li>Write functions to handle turns, attacks, and damage calculations: These functions need to calculate how much damage is done, who is attacking and how they are attacking, and what effects the attack has. </li>
+			<li>Set up a UI to manage player and enemy health and stats: This UI should include health bars, hit points, and any relevant stats for the battle.</li>
+			<li>Create a system that allows for input to be read and processed: This allows the player to select their desired actions</li>
+		</ol><!--numbered list end-->
+		<br>
+	  <h2>Calvin & Hobbes</h2>
+		<img src="https://i.cbc.ca/1.4688586.1527886359!/fileImage/httpImage/image.gif_gen/derivatives/original_1180/calvin-hobbes-first-comic.gif" width="450" height="125" alt="Calvin and Hobbes"/>
+		<p>I added a picture of them above :)</p>
+	    <h1>Iframe: Deltarune Webpage</h1><!--iFrame (webpageinside of my webpage)-->
+	    <iframe src="https://deltarune.com/" style="height:500px;width:1250px" title="Iframe Example"></iframe>		  
+		<br>
+		<br>
+	  <h1>Add Another Title Here<h1> 
+	<table> <!--Table Start-->
+	  <thead>
+		<tr>
+		  <th scope="col">My Top Games</th>
+		  <th scope="col">My Favorite Foods</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>Rocket League</td>
+		  <td>Meatball Sandwiches</td>
+		</tr>
+		<tr>
+		  <td>Deltarune/Undertale</td>
+		  <td>Fettuccini Alfredo</td>
+		</tr>
+	  </tbody>
+	</table> <!--Table End-->
+	<br>
+	<section class="Games"> <!-- Form Start-->
+      <label for="Games">How often do you play games?</label>
+      <br>
+      <span>A Lot</span>
+        <input type="range" name="Games" id="Games" value="3" min="1" max="10">
+      <span>Never</span>
+    </section> <!--Form End-->
+    <br>
+	<h3>Click the button to get your coordinates.</h3><!--Geolocation button start-->
+      <button class="btn btn-outline-secondary btn-lg" onclick="getLocation()">Location</button>
+    <p id="demo"></p><!--Geolocation button end-->
+	
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {<!--start of geolocation thingy-->
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}   
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}<!--end of Geolocation thingy-->
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
