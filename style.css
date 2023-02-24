@@ -180,4 +180,16 @@
     color: #666;
     padding: 40px 0;
 }
+.Games {
+	width: 575px;
+	height: 125px;
+	text-align: center;
+}
+#my-header { 
+    border: solid cyan 10px;
+	background-color: black;
+	animation: mymove1 7s infinite;
+	@keyframes mymove1 {50% {background-color: #001B50;}}
+}
+
 </style><!--End of style-->
