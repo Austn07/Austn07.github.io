@@ -191,5 +191,6 @@
 	animation: mymove1 7s infinite;
 	@keyframes mymove1 {50% {background-color: #001B50;}}
 }
-
+header, section, footer, aside, nav, article, figure, figcaption {
+	display: block;}
 </style><!--End of style-->
