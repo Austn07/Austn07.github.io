@@ -37,9 +37,6 @@
 		float: right;
 		font-style: italic;
 	}
-	.uppercase{ <!-- anything using this class will be in all caps-->
-	  text-transform: uppercase;
-	}
     .mariorun {
 	  position: relative;
 	  width: 100%;
