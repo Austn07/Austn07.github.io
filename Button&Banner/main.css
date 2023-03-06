@@ -1,0 +1,17 @@
+.btn {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Georgia;
+  color: #ffaa00;
+  font-size: 20px;
+  background: #000000;
+  padding: 10px 20px 10px 20px;
+  border: solid #ffaa00 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  border: #ffea00;
+  text-decoration: none;
+}
