@@ -66,6 +66,7 @@
 .navbar-brand {
     color: orange;
     cursor: pointer;
+	font-weight: bold;
 }
 .nav-link {
     margin-right: 1em !important;
